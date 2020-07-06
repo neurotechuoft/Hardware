@@ -67,4 +67,33 @@ make
 
 ## Usage
 
-TODO
+The driver can be started as follows:
+```bash
+usage: ./mcp3008lsl [-f freq in hz] [-n stream name] [-u uid] [-t type]  [0-7] [[0-7]...]
+```
+
+`-f` specifies the sampling frequency of the given channels in hertz. In theory the chip can
+sample at a rate of 10000hz, but in rudimentary testing I've found that this is rarely achieved
+likely due to a number of factors contributing to overhead. Default sampling is 500hz.
+
+`-n` specifies the name of the stream over the lsl layer. Defaults to "SendDataC".
+
+`-u` the unique identifier of the device. NOTE: make sure this is a unique value if you plan to
+have multiple streaming devices. Defaults to "325wqer4354".
+
+`-t` specifies the type of the data being streamed from the MCP3008 for the LSL layer. Defaults
+to "EKG".
+
+`[0-7]` specifies the input pin assigned to the first channel value. Subsequent specified
+channels will map to the next channel for a total of `n` possible channels.
+
+### Examples
+Start a stream of 2 channels from inputs 5 and 7:
+```bash
+./mcp3008lsl 5 7
+```
+
+Start a stream of 8 channels from the inputs in reverse order at 1000hz:
+```bash
+./mcp3008lsl -f 1000 7 6 5 4 3 2 1 0
+```
