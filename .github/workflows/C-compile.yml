@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: List Current location
-      run: pwd
     - name: Change to subdirectory
       run: ls
     - uses: actions/checkout@v2
