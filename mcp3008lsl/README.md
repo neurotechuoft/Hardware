@@ -1,4 +1,6 @@
-# Lab Streaming Layer driver for MCP3008
+# Lab Streaming Layer driver for MCP3008 
+![C CI](https://github.com/neurotechuoft/Hardware/workflows/C%20CI/badge.svg)
+
 This is a driver for collecting data from the MCP3008 ADC chip and streaming it over LSL using a
 Raspberry pi running Rasbian as the host device. The sampled channels, stream name, uid, etc. Can be
 adjusted at run through multiple commandline flags.
