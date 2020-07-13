@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Change to subdirectory
       run: cd ./mcp3008lsl
-    - uses: actions/checkout@v2
     - name: make
       run: make
 # Enable if tests are written
