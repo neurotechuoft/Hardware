@@ -1,14 +1,16 @@
-name: C/C++ CI
+name: C CI
 
 on:
   push:
     branches: [ master ]
-    paths:
-      - 'mcp3008lsl/*'
+    paths: 
+      - 'mcp3008lsl/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [ master ]
-    paths:
+    paths: 
       - 'mcp3008lsl/*'
+      - '.github/workflows/*'
   
 
 jobs:
@@ -17,11 +19,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Change to subdirectory
-      run: cd mcp3008lsl/
     - uses: actions/checkout@v2
-    - name: make
+    - name: Install the liblsl
+      run: |
+        git clone https://github.com/sccn/liblsl.git
+        cd liblsl
+        mkdir build && cd build
+        cmake ..
+        make -j package
+        sudo dpkg -i *.deb
+    - name: Compile mcp3008lsl
       run: make
+      working-directory: ./mcp3008lsl
 # Enable if tests are written
 #    - name: make check
 #      run: make check
