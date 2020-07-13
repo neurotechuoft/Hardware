@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'mcp3008/*'
+      - 'mcp3008lsl/*'
   pull_request:
     branches: [ master ]
     paths:
-      - 'mcp3008/*'
+      - 'mcp3008lsl/*'
   
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Change to subdirectory
-      run: cd mcp3008/
+      run: cd mcp3008lsl/
     - uses: actions/checkout@v2
     - name: make
       run: make
