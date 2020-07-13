@@ -14,8 +14,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make mcp3008lsl
-      run: cd ./mcp3008lsl; make
+    - name: Install the liblsl
+      run: |
+        git clone https://github.com/sccn/liblsl.git
+        cd liblsl
+        mkdir build && cd build
+        cmake ..
+        make -j package
+        dpkg -i *.deb
+    - name: Compile mcp3008lsl
+      run: make
+      working-directory: ./mcp3008lsl
 # Enable if tests are written
 #    - name: make check
 #      run: make check
