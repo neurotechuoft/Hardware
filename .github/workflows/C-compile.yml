@@ -4,13 +4,13 @@ on:
   push:
     branches: [ master ]
     paths: 
-      - './mcp3008lsl/**'
-      - './.github/workflows/**'
+      - 'mcp3008lsl/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [ master ]
     paths: 
-      - './mcp3008lsl/*'
-      - './.github/workflows/*'
+      - 'mcp3008lsl/*'
+      - '.github/workflows/*'
   
 
 jobs:
