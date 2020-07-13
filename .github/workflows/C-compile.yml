@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: List Current location
+      run: pwd
     - name: Change to subdirectory
-      run: cd mcp3008lsl
+      run: ls
     - uses: actions/checkout@v2
     - name: make
       run: make
