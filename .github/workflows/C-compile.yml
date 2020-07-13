@@ -1,10 +1,16 @@
-name: C/C++ CI
+name: C CI
 
 on:
   push:
     branches: [ master ]
+    paths: 
+      - './mcp3008lsl/*'
+      - './.github/workflows/*'
   pull_request:
     branches: [ master ]
+    paths: 
+      - './mcp3008lsl/*'
+      - './.github/workflows/*'
   
 
 jobs:
