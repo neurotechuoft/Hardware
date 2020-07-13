@@ -21,7 +21,7 @@ jobs:
         mkdir build && cd build
         cmake ..
         make -j package
-        dpkg -i *.deb
+        sudo dpkg -i *.deb
     - name: Compile mcp3008lsl
       run: make
       working-directory: ./mcp3008lsl
