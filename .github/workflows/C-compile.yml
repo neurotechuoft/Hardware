@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Change to subdirectory
-      run: cd mcp3008lsl/
+      run: cd mcp3008lsl
     - uses: actions/checkout@v2
     - name: make
       run: make
