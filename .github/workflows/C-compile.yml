@@ -14,10 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Change to subdirectory
-      run: cd ./mcp3008lsl
-    - name: make
-      run: make
+    - name: make mcp3008lsl
+      run: cd ./mcp3008lsl; make
 # Enable if tests are written
 #    - name: make check
 #      run: make check
