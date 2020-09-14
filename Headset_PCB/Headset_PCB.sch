@@ -1,0 +1,296 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:R 7.87k
+U 1 1 5F38F570
+P 1800 1550
+F 0 "7.87k" H 1870 1596 50  0000 L CNN
+F 1 "R" H 1870 1505 50  0000 L CNN
+F 2 "" V 1730 1550 50  0001 C CNN
+F 3 "~" H 1800 1550 50  0001 C CNN
+	1    1800 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R 14.7k
+U 1 1 5F38FC64
+P 2400 1550
+F 0 "14.7k" H 2470 1596 50  0000 L CNN
+F 1 "R" H 2470 1505 50  0000 L CNN
+F 2 "" V 2330 1550 50  0001 C CNN
+F 3 "~" H 2400 1550 50  0001 C CNN
+	1    2400 1550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C C?
+U 1 1 5F39208C
+P 2750 1000
+F 0 "C?" H 2928 1046 50  0000 L CNN
+F 1 "0.22uF" H 2928 955 50  0000 L CNN
+F 2 "" H 2750 1000 50  0001 C CNN
+F 3 "~" H 2750 1000 50  0001 C CNN
+	1    2750 1000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C 0.1uF
+U 1 1 5F392AF5
+P 2700 2050
+F 0 "0.1uF" H 2878 2096 50  0000 L CNN
+F 1 "C" H 2878 2005 50  0000 L CNN
+F 2 "" H 2700 2050 50  0001 C CNN
+F 3 "~" H 2700 2050 50  0001 C CNN
+	1    2700 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Analog_ADC:MCP3008 U?
+U 1 1 5F39318F
+P 7800 4000
+F 0 "U?" H 7800 4681 50  0000 C CNN
+F 1 "MCP3008" H 7800 4590 50  0000 C CNN
+F 2 "" H 7900 4100 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf" H 7900 4100 50  0001 C CNN
+	1    7800 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:MCP6001x-LT U?
+U 1 1 5F394C88
+P 3450 1650
+F 0 "U?" H 3794 1696 50  0000 L CNN
+F 1 "MCP6001x-LT" H 3794 1605 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 3350 1450 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 3450 1650 50  0001 C CNN
+	1    3450 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Module:RaspberryPi-CM3 U?
+U 1 1 5F396C4C
+P 10000 3750
+F 0 "U?" H 10000 361 50  0000 C CNN
+F 1 "RaspberryPi-CM3" H 10000 270 50  0000 C CNN
+F 2 "" H 9400 7150 50  0001 C CNN
+F 3 "https://www.raspberrypi.org/documentation/hardware/computemodule/datasheets/rpi_DATA_CM_1p0.pdf" H 9400 7150 50  0001 C CNN
+	1    10000 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 1350 3350 1000
+Wire Wire Line
+	3350 1000 3000 1000
+Wire Wire Line
+	2550 1550 2700 1550
+Wire Wire Line
+	2250 1550 2100 1550
+Wire Wire Line
+	2100 1550 2100 1000
+Wire Wire Line
+	2100 1000 2500 1000
+Connection ~ 2100 1550
+Wire Wire Line
+	2100 1550 1950 1550
+Wire Wire Line
+	2700 1550 2700 1800
+Connection ~ 2700 1550
+Wire Wire Line
+	2700 1550 3150 1550
+$Comp
+L power:GND #PWR?
+U 1 1 5F4C9946
+P 2700 2300
+F 0 "#PWR?" H 2700 2050 50  0001 C CNN
+F 1 "GND" H 2705 2127 50  0000 C CNN
+F 2 "" H 2700 2300 50  0001 C CNN
+F 3 "" H 2700 2300 50  0001 C CNN
+	1    2700 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R 7.87k?
+U 1 1 5F4D95C7
+P 4850 1700
+F 0 "7.87k?" H 4920 1746 50  0000 L CNN
+F 1 "R" H 4920 1655 50  0000 L CNN
+F 2 "" V 4780 1700 50  0001 C CNN
+F 3 "~" H 4850 1700 50  0001 C CNN
+	1    4850 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R 14.7k?
+U 1 1 5F4D95CD
+P 5450 1700
+F 0 "14.7k?" H 5520 1746 50  0000 L CNN
+F 1 "R" H 5520 1655 50  0000 L CNN
+F 2 "" V 5380 1700 50  0001 C CNN
+F 3 "~" H 5450 1700 50  0001 C CNN
+	1    5450 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C C?
+U 1 1 5F4D95D3
+P 5800 1150
+F 0 "C?" H 5978 1196 50  0000 L CNN
+F 1 "0.22uF" H 5978 1105 50  0000 L CNN
+F 2 "" H 5800 1150 50  0001 C CNN
+F 3 "~" H 5800 1150 50  0001 C CNN
+	1    5800 1150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C 0.1uF?
+U 1 1 5F4D95D9
+P 5750 2200
+F 0 "0.1uF?" H 5928 2246 50  0000 L CNN
+F 1 "C" H 5928 2155 50  0000 L CNN
+F 2 "" H 5750 2200 50  0001 C CNN
+F 3 "~" H 5750 2200 50  0001 C CNN
+	1    5750 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:MCP6001x-LT U?
+U 1 1 5F4D95DF
+P 6500 1800
+F 0 "U?" H 6844 1846 50  0000 L CNN
+F 1 "MCP6001x-LT" H 6844 1755 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 6400 1600 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6500 1800 50  0001 C CNN
+	1    6500 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 1500 6400 1150
+Wire Wire Line
+	6400 1150 6050 1150
+Wire Wire Line
+	5600 1700 5750 1700
+Wire Wire Line
+	5300 1700 5150 1700
+Wire Wire Line
+	5150 1700 5150 1150
+Wire Wire Line
+	5150 1150 5550 1150
+Connection ~ 5150 1700
+Wire Wire Line
+	5150 1700 5000 1700
+Wire Wire Line
+	5750 1700 5750 1950
+Connection ~ 5750 1700
+Wire Wire Line
+	5750 1700 6200 1700
+$Comp
+L power:GND #PWR?
+U 1 1 5F4D95F0
+P 5750 2450
+F 0 "#PWR?" H 5750 2200 50  0001 C CNN
+F 1 "GND" H 5755 2277 50  0000 C CNN
+F 2 "" H 5750 2450 50  0001 C CNN
+F 3 "" H 5750 2450 50  0001 C CNN
+	1    5750 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R 7.87k?
+U 1 1 5F4DE3FB
+P 1950 4100
+F 0 "7.87k?" H 2020 4146 50  0000 L CNN
+F 1 "R" H 2020 4055 50  0000 L CNN
+F 2 "" V 1880 4100 50  0001 C CNN
+F 3 "~" H 1950 4100 50  0001 C CNN
+	1    1950 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R 14.7k?
+U 1 1 5F4DE401
+P 2550 4100
+F 0 "14.7k?" H 2620 4146 50  0000 L CNN
+F 1 "R" H 2620 4055 50  0000 L CNN
+F 2 "" V 2480 4100 50  0001 C CNN
+F 3 "~" H 2550 4100 50  0001 C CNN
+	1    2550 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C C?
+U 1 1 5F4DE407
+P 2900 3550
+F 0 "C?" H 3078 3596 50  0000 L CNN
+F 1 "0.22uF" H 3078 3505 50  0000 L CNN
+F 2 "" H 2900 3550 50  0001 C CNN
+F 3 "~" H 2900 3550 50  0001 C CNN
+	1    2900 3550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L pspice:C 0.1uF?
+U 1 1 5F4DE40D
+P 2850 4600
+F 0 "0.1uF?" H 3028 4646 50  0000 L CNN
+F 1 "C" H 3028 4555 50  0000 L CNN
+F 2 "" H 2850 4600 50  0001 C CNN
+F 3 "~" H 2850 4600 50  0001 C CNN
+	1    2850 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:MCP6001x-LT U?
+U 1 1 5F4DE413
+P 3600 4200
+F 0 "U?" H 3944 4246 50  0000 L CNN
+F 1 "MCP6001x-LT" H 3944 4155 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 3500 4000 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 3600 4200 50  0001 C CNN
+	1    3600 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 3900 3500 3550
+Wire Wire Line
+	3500 3550 3150 3550
+Wire Wire Line
+	2700 4100 2850 4100
+Wire Wire Line
+	2400 4100 2250 4100
+Wire Wire Line
+	2250 4100 2250 3550
+Wire Wire Line
+	2250 3550 2650 3550
+Connection ~ 2250 4100
+Wire Wire Line
+	2250 4100 2100 4100
+Wire Wire Line
+	2850 4100 2850 4350
+Connection ~ 2850 4100
+Wire Wire Line
+	2850 4100 3300 4100
+$Comp
+L power:GND #PWR?
+U 1 1 5F4DE424
+P 2850 4850
+F 0 "#PWR?" H 2850 4600 50  0001 C CNN
+F 1 "GND" H 2855 4677 50  0000 C CNN
+F 2 "" H 2850 4850 50  0001 C CNN
+F 3 "" H 2850 4850 50  0001 C CNN
+	1    2850 4850
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
