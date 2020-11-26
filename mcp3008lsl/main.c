@@ -80,7 +80,7 @@ int parseargs(int argc, char* argv[], struct _args *args) {
     return ret;
 }
 
-int runprog(struct _args args) {
+int runprog(struct _args *args) {
     int ret = 0;
 
     spi s;
@@ -90,12 +90,12 @@ int runprog(struct _args args) {
         goto cleanup;
     }
 
-    lsl_streaminfo info = lsl_create_streaminfo(args.name,
-                                                args.type,
-                                                args.num_channels,
-                                                args.freq,
+    lsl_streaminfo info = lsl_create_streaminfo(args->name,
+                                                args->type,
+                                                args->num_channels,
+                                                args->freq,
                                                 cft_int16,
-                                                args.uid);
+                                                args->uid);
 
     // Leaving this here as it might be used later -ECF 2020-04-22
     //lsl_xml_ptr desc = lsl_get_desc(info);
@@ -107,13 +107,18 @@ int runprog(struct _args args) {
 
     printf("Now sending data...\n");
 
+    int *cursample = malloc(args->num_channels*sizeof(int));
     /* send data until the last consumer has disconnected */
     while (lsl_have_consumers(outlet)) {
-        int cursample[args.num_channels];
-        for (int c=0; c < args.num_channels; c++) {
-            cursample[c] = spi_getadc(&s, args.channels[c]);
+        for (int c=0; c < args->num_channels; c++) {
+            for(int i=0; i < 10; i++)
+            {
+              cursample[c] += spi_getadc(&s, args->channels[c]);
+            }
+            cursample[c] /= 10;
         }
         lsl_push_sample_i(outlet, cursample);
+        memset(cursample, 0x00, args->num_channels*sizeof(int));
     }
     printf("Lost the last consumer, shutting down\n");
     lsl_destroy_outlet(outlet);
@@ -124,13 +129,14 @@ cleanup:
 }
 
 int main(int argc, char* argv[]) {
-    struct _args args;
+    struct _args *args = malloc(sizeof(*args) + sizeof(unsigned short)*argc); // NOTE: this will over allocate space slightly.
     int ret;
-    ret = parseargs(argc, argv, &args);
+    ret = parseargs(argc, argv, args);
 
     if (!ret) {
         ret = runprog(args);
     }
 
+    free(args);
     return ret;
 }

@@ -81,8 +81,9 @@ int spi_getadc(spi* s, int channel)
   assert(s);
   assert(s->dev >= 0);
 
-  if(channel < 0 && channel > 7)
+  if(channel < 0 || channel > 7)
   {
+    fprintf(stderr, "Channel number outside possible range\n");
     return -1;
   }
   int ret = -1;
@@ -112,7 +113,7 @@ int spi_getadc(spi* s, int channel)
 
   ret = ioctl(s->dev, SPI_IOC_MESSAGE(3), xfer);
   if(ret < 0){
-    printf("SPI_IOC_MESSAGE failed... %d\n", ret);
+    fprintf(stderr, "SPI_IOC_MESSAGE failed... %d\n", ret);
     return -1;
   }
 
